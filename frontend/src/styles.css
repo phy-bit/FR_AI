@@ -1,0 +1,857 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #080b0e;
+  color: #e6edf1;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.shell {
+  min-height: 100vh;
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+.topbar {
+  height: 72px;
+  padding: 0 24px;
+  border-bottom: 1px solid #20272d;
+  background: #0a0e11;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand,
+.headstats,
+.status,
+.pt,
+.persontop,
+.person-id,
+.critical,
+footer span:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 12px;
+}
+
+.mark {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #3a454d;
+  border-radius: 9px;
+
+  background: #11171b;
+}
+
+.brand-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.brand-sub {
+  font-size: 9px;
+  color: #7f8b94;
+  letter-spacing: 0.12em;
+}
+
+.headstats {
+  gap: 22px;
+}
+
+.headstats div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.headstats small,
+.telegrid small,
+.metrics small,
+.intelgrid small,
+.scenename small,
+.score span {
+  color: #68747d;
+  font-size: 7px;
+  letter-spacing: 0.11em;
+}
+
+.headstats b {
+  font-size: 12px;
+}
+
+/* ============================================================
+   CONNECTION STATUS
+   ============================================================ */
+
+.status {
+  gap: 6px;
+
+  padding: 7px 10px;
+
+  border: 1px solid #2d373e;
+  border-radius: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.status.online {
+  color: #9bd6b1;
+}
+
+.status.connecting {
+  color: #e2c477;
+}
+
+.status.offline {
+  color: #e38b8b;
+}
+
+/* ============================================================
+   CRITICAL ALERT
+   ============================================================ */
+
+.critical {
+  margin: 14px 24px 0;
+  padding: 9px 13px;
+
+  border: 1px solid #673637;
+  background: #241315;
+  color: #f0aaaa;
+  border-radius: 7px;
+
+  gap: 8px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+
+main {
+  padding: 18px 24px 14px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(350px, 0.8fr);
+
+  gap: 16px;
+}
+
+.maincol,
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+
+.panel {
+  border: 1px solid #222b31;
+  border-radius: 9px;
+
+  background: #0d1216;
+
+  overflow: hidden;
+}
+
+.pt {
+  height: 44px;
+  padding: 0 14px;
+
+  border-bottom: 1px solid #20282e;
+
+  justify-content: space-between;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.pt span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pt em {
+  font-style: normal;
+
+  font-size: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #aeb9c0;
+}
+
+.pt em i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #77bd91;
+  box-shadow: 0 0 7px #77bd9188;
+}
+
+.gpsok {
+  color: #91c9a7 !important;
+}
+
+.gpsoff {
+  color: #7a858d !important;
+}
+
+/* ============================================================
+   LIVE VIDEO
+   ============================================================ */
+
+.video {
+  height: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #77838c;
+  background: #090d10;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.video img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  padding: 5px 9px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  border: 1px solid #354149;
+  border-radius: 4px;
+
+  color: #d5dfe4;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+
+  pointer-events: none;
+}
+
+.scan {
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 5px,
+      #ffffff05 6px
+    );
+
+  pointer-events: none;
+}
+
+.video strong {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: #b6c0c7;
+}
+
+.video span,
+.video small {
+  font-size: 10px;
+}
+
+.video small {
+  font-size: 8px;
+  color: #56616a;
+}
+
+/* ============================================================
+   MAP
+   ============================================================ */
+
+.map {
+  height: 245px;
+
+  position: relative;
+
+  background: #0a1012;
+
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(#6c919e18 1px, transparent 1px),
+    linear-gradient(90deg, #6c919e18 1px, transparent 1px);
+
+  background-size: 38px 38px;
+
+  transform:
+    perspective(500px)
+    rotateX(12deg)
+    scale(1.1);
+}
+
+.mapcross {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #657984;
+}
+
+.mapoff,
+.mapinfo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, 45px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  text-align: center;
+}
+
+.mapoff {
+  color: #687780;
+}
+
+.mapoff b {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #a2adb4;
+}
+
+.mapoff span,
+.mapinfo span {
+  font-size: 9px;
+  color: #6d7f88;
+}
+
+.mapinfo {
+  color: #9fc6d5;
+}
+
+.mapinfo b {
+  font-size: 11px;
+}
+
+/* ============================================================
+   PEOPLE
+   ============================================================ */
+
+.people {
+  max-height: 610px;
+}
+
+.count {
+  min-width: 22px;
+  height: 20px;
+
+  padding: 0 6px;
+
+  border-radius: 5px;
+
+  background: #182127;
+  color: #b7c1c8;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 9px;
+}
+
+.peoplelist {
+  padding: 10px;
+
+  overflow: auto;
+
+  max-height: 562px;
+}
+
+.person {
+  border: 1px solid #252f35;
+  border-left-width: 3px;
+
+  border-radius: 7px;
+
+  background: #10161a;
+
+  margin-bottom: 9px;
+  padding: 11px;
+}
+
+.person.low {
+  border-left-color: #5e9a72;
+}
+
+.person.medium {
+  border-left-color: #c4a354;
+}
+
+.person.high {
+  border-left-color: #c77849;
+}
+
+.person.critical {
+  border-left-color: #c55c5c;
+  background: #171113;
+}
+
+.persontop {
+  justify-content: space-between;
+}
+
+.persontop > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #aeb9c0;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   PRIORITY BADGES
+   ============================================================ */
+
+.badge {
+  font-size: 8px;
+
+  padding: 5px 7px;
+
+  border-radius: 4px;
+
+  letter-spacing: 0.08em;
+}
+
+.badge.low {
+  background: #17251c;
+  color: #8fc19f;
+}
+
+.badge.medium {
+  background: #292419;
+  color: #d2bc78;
+}
+
+.badge.high {
+  background: #2b201a;
+  color: #dc986e;
+}
+
+.badge.critical {
+  background: #321a1c;
+  color: #ed9696;
+}
+
+/* ============================================================
+   IDENTITY
+   ============================================================ */
+
+.identity {
+  margin: 12px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.identity strong {
+  font-size: 15px;
+}
+
+.identity small {
+  color: #68747d;
+  font-size: 8px;
+}
+
+/* ============================================================
+   PERSON METRICS
+   ============================================================ */
+
+.metrics,
+.telegrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 6px;
+}
+
+.metrics > div,
+.telegrid > div,
+.igroup {
+  padding: 8px;
+
+  background: #0b1013;
+
+  border: 1px solid #20282e;
+  border-radius: 5px;
+}
+
+.metrics b,
+.telegrid b {
+  font-size: 8px;
+  color: #b8c2c8;
+}
+
+/* ============================================================
+   RESCUE SCORE
+   ============================================================ */
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #232c32;
+
+  margin-top: 10px;
+  padding-top: 9px;
+}
+
+.score strong {
+  font-size: 16px;
+}
+
+.reasons {
+  margin-top: 8px;
+  padding-top: 7px;
+
+  border-top: 1px solid #20282e;
+}
+
+.reasons div,
+.iitem {
+  display: flex;
+
+  gap: 3px;
+
+  color: #78848c;
+
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.empty {
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #657179;
+}
+
+.empty b {
+  font-size: 10px;
+  color: #9ca8af;
+  letter-spacing: 0.08em;
+}
+
+.empty span {
+  font-size: 8px;
+}
+
+/* ============================================================
+   SCENE INTELLIGENCE
+   ============================================================ */
+
+.intel {
+  padding-bottom: 14px;
+}
+
+.scenename {
+  padding: 13px 14px 5px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.scenename b {
+  font-size: 15px;
+}
+
+.intelgrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 8px;
+
+  padding: 7px 14px 0;
+}
+
+.igroup {
+  min-height: 76px;
+}
+
+.iitem {
+  margin-top: 5px;
+
+  color: #a9b4ba;
+}
+
+.muted {
+  display: block;
+
+  color: #4f5b63;
+
+  font-size: 8px;
+
+  margin-top: 7px;
+}
+
+/* ============================================================
+   DRONE TELEMETRY
+   ============================================================ */
+
+.telegrid {
+  grid-template-columns: 1fr 1fr;
+
+  padding: 10px;
+}
+
+.telegrid b {
+  font-size: 10px;
+}
+
+/* ============================================================
+   FALCON ASSISTANT
+   ============================================================ */
+
+.falcon {
+  padding-bottom: 10px;
+}
+
+.falcon form {
+  display: flex;
+
+  gap: 7px;
+
+  padding: 10px;
+}
+
+.falcon input {
+  flex: 1;
+
+  min-width: 0;
+
+  background: #090e11;
+  color: #dbe2e6;
+
+  border: 1px solid #283239;
+  border-radius: 6px;
+
+  padding: 10px;
+
+  outline: 0;
+
+  font-size: 9px;
+}
+
+.falcon input:focus {
+  border-color: #566872;
+}
+
+.falcon button {
+  border: 1px solid #36434b;
+
+  background: #182126;
+  color: #d6dfe3;
+
+  border-radius: 6px;
+
+  padding: 0 12px;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  cursor: pointer;
+}
+
+.falcon button:hover {
+  background: #202c32;
+}
+
+.note {
+  padding: 0 10px;
+
+  color: #58656d;
+
+  font-size: 7px;
+}
+
+.note code {
+  color: #8799a3;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  border-top: 1px solid #20272d;
+
+  padding: 10px 24px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #4f5b63;
+
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+
+footer span:last-child {
+  gap: 5px;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .people {
+    max-height: none;
+  }
+
+  .peoplelist {
+    max-height: 480px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+  .topbar {
+    height: auto;
+
+    padding: 14px;
+
+    align-items: flex-start;
+  }
+
+  .headstats {
+    gap: 9px;
+  }
+
+  .headstats > div:not(.status) {
+    display: none;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  .intelgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .video {
+    height: 250px;
+  }
+
+  footer {
+    padding: 10px 12px;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL PHONE
+   ============================================================ */
+
+@media (max-width: 450px) {
+  .intelgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

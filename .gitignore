@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# AI models
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.safetensors
+*.bin
+
+# Generated data
+output/
+recordings/
+
+# Face recognition / biometric data
+face_database.pkl
+face_images/
+
+# Images
+*.jpg
+*.jpeg
+*.png
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local development certificates
+frontend/certs/
+
+# macOS
+.DS_Store
+
+# Old project versions
+falcon_pipeline_split/
+falcon_pipeline_split 2/
+falcon_pipeline_split 3/
+
+# Obsolete monolithic pipeline
+pipeline.py
